@@ -1,0 +1,136 @@
+custom_phrase:
+  db_class: stabledb
+  dictionary: ""
+  enable_completion: false
+  enable_sentence: false
+  initial_quality: 1
+  user_dict: custom_phrase
+customization: 3840221626
+emoji_conversion:
+  opencc_config: emoji.json
+  option_name: show_emoji
+  tags: abc
+engine:
+  filters:
+    - simplifier
+    - "simplifier@emoji_conversion"
+    - uniquifier
+    - "charset_filter@gbk"
+    - single_char_filter
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - "table_translator@custom_phrase"
+    - script_translator
+    - "table_translator@english"
+english:
+  dictionary: easy_en
+  enable_completion: false
+  enable_sentence: false
+  initial_quality: "-2"
+  spelling_hints: 9
+key_binder:
+  bindings:
+    - {accept: "Control+Shift+4", toggle: zh_simp, when: always}
+    - {accept: "Control+Shift+dollar", toggle: zh_simp, when: always}
+  import_preset: default
+punctuator:
+  half_shape:
+    "#": "#"
+    "$": ["¥", "$", "€", "£", "¢", "¤"]
+    "'": {pair: ["「", "」"]}
+    "*": "*"
+    "/": ["/", "÷"]
+    "<": ["《", "〈", "«", "<"]
+    "=": "="
+    ">": ["》", "〉", "»", ">"]
+    "@": "@"
+    "[": ["【", "["]
+    "\\": "、"
+    "]": ["】", "]"]
+    _: "──"
+    "`": "`"
+    "~": "~"
+  import_preset: symbols
+  symbols:
+    "/bq": ["😂️", "😅️", "☺️", "😱️", "😭️", "😇️", "🙃️", "🤔️", "💊️", "💯️", "👍️", "🙈️", "💩️", "😈️"]
+    "/dn": ["⌘", "⌥", "⇧", "⌃", "⎋", "⇪", "", "⌫", "⌦", "↩︎", "⏎", "↑", "↓", "←", "→", "↖", "↘", "⇟", "⇞"]
+    "/fh": ["©", "®", "℗", "ⓘ", "℠", "™", "℡", "␡", "♂", "♀", "☉", "☊", "☋", "☌", "☍", "☐", "☑︎", "☒", "☜", "☝", "☞", "☟", "✎", "✄", "♻", "⚐", "⚑", "⚠"]
+    "/fs": ["½", "‰", "¼", "⅓", "⅔", "¾", "⅒"]
+    "/xh": ["＊", "×", "✱", "★", "☆", "✩", "✧", "❋", "❊", "❉", "❈", "❅", "✿", "✲"]
+recognizer:
+  import_preset: default
+  patterns:
+    punct: "^/([a-z]+|[0-9]0?)$"
+schema:
+  author:
+    - "佛振 <chen.sst@gmail.com>"
+  dependencies:
+    - easy_en
+  description: |
+    朙月拼音，簡化字輸出模式。
+    
+  name: "朙月拼音·简化字"
+  schema_id: luna_pinyin_simp
+  version: 0.22.custom.3840221626
+simplifier:
+  option_name: zh_simp
+speller:
+  algebra:
+    - "xform/^([b-df-hj-np-tv-z])$/$1_/"
+    - "erase/^xx$/"
+    - "derive/([ei])n$/$1ng/"
+    - "derive/([ei])ng$/$1n/"
+    - "abbrev/^([a-z]).+$/$1/"
+    - "abbrev/^([zcs]h).+$/$1/"
+    - "derive/^([nl])ve$/$1ue/"
+    - "derive/^([jqxy])u/$1v/"
+    - "derive/un$/uen/"
+    - "derive/ui$/uei/"
+    - "derive/iu$/iou/"
+    - "derive/([aeiou])ng$/$1gn/"
+    - "derive/([dtngkhrzcs])o(u|ng)$/$1o/"
+    - "derive/ong$/on/"
+    - "derive/ao$/oa/"
+    - "derive/ua$/au/"
+    - "derive/([iu])a(o|ng?)$/a$1$2/"
+  alphabet: zyxwvutsrqponmlkjihgfedcba
+  delimiter: " '"
+switches:
+  - name: ascii_mode
+    reset: 0
+    states: ["中文", "西文"]
+  - name: full_shape
+    states: ["半角", "全角"]
+  - name: zh_simp
+    reset: 1
+    states: ["漢字", "汉字"]
+  - name: ascii_punct
+    states: ["。，", "．，"]
+  - options: [utf8, gbk, gb2312]
+    reset: 0
+    states: ["UTF-8", GBK, GB2312]
+  - name: show_emoji
+    reset: 1
+    states: ["🈚️️︎", "🈶️️️"]
+translator:
+  dictionary: luna_pinyin.extended
+  preedit_format:
+    - "xform/([nl])v/$1ü/"
+    - "xform/([nl])ue/$1üe/"
+    - "xform/([jqxy])v/$1u/"
+  prism: luna_pinyin_simp

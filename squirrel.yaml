@@ -1,0 +1,55 @@
+app_options:
+  com.alfredapp.Alfred:
+    ascii_mode: true
+  com.apple.Terminal:
+    ascii_mode: true
+    no_inline: true
+  com.blacktree.Quicksilver:
+    ascii_mode: true
+  com.googlecode.iterm2:
+    ascii_mode: true
+  "com.runningwithcrayons.Alfred-2":
+    ascii_mode: true
+  "com.runningwithcrayons.Alfred-3":
+    ascii_mode: true
+  org.vim.MacVim:
+    ascii_mode: true
+    no_inline: true
+chord_duration: 0.1
+config_version: 0.22.custom.2401960710
+customization: 2401960710
+preset_color_schemes:
+  system_blue:
+    author: "scomper <scomper@gmail.com>"
+    back_color: 0xFFFFFF
+    border_color: 0xE0B693
+    border_height: 0
+    border_width: 0
+    candidate_format: "%c %@  "
+    candidate_text_color: 0x000000
+    comment_text_color: 0x999999
+    corner_radius: 6
+    hilited_back_color: 0xcc3300
+    hilited_candidate_label_color: 0xFFFFFF
+    hilited_candidate_text_color: 0xFFFFFF
+    hilited_comment_text_color: 0x999999
+    hilited_text_color: 0x999999
+    horizontal: false
+    inline_preedit: true
+    label_color: 0x999999
+    label_font_face: "SFCompactText-Regular"
+    name: "系统蓝／System Blue"
+    text_color: 0x424242
+show_notifications_via_notification_center: false
+show_notifications_when: always
+style:
+  border_height: 0
+  border_width: 0
+  color_scheme: system_blue
+  corner_radius: 10
+  font_face: "Lucida Grande"
+  horizontal: false
+  inline_preedit: true
+  line_spacing: 1
+  spacing: 5
+us_keyboard_layout: false
