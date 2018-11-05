@@ -5,4 +5,4 @@
 - Replase all the files inside the `/Users/[Your user name]/Library/Rime`.
 - Re-deploy the input method.
 
-![](https://i.loli.net/2018/11/05/5be042a34049a.png)
+![](https://i.loli.net/2018/11/05/5be04de6a0683.png)
