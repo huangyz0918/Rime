@@ -1,4 +1,4 @@
-# Rime
+# Rime 鼠须管配置
 
 - This config needs typeface  [_hanazono_](http://fonts.jp/hanazono/), which can be found [here](.materials).
 - Replase all the files inside the `/Users/[Your user name]/Library/Rime`.
